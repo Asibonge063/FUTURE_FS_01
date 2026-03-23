@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import sectionBg from "@/assets/section-bg.jpg";
 
 const projects = [
   {
