@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import { Send } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
+import sectionBg from "@/assets/section-bg.jpg";
 
 const ContactSection = () => {
   const ref = useScrollReveal();
