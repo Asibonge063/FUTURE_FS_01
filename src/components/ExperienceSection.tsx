@@ -18,9 +18,9 @@ const ExperienceSection = () => {
               <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-5">
                 Education
               </h3>
-              <div className="border-l-2 border-border pl-6 space-y-6">
+              <div className="border-l-2 border-accent/40 pl-6 space-y-6">
                 <div>
-                  <p className="text-xs font-mono text-muted-foreground mb-1">2022 — 2025</p>
+                  <p className="text-xs font-mono text-accent mb-1">2022 — 2025</p>
                   <p className="font-semibold text-foreground">Diploma in Applications Development</p>
                   <p className="text-text-secondary">Durban University of Technology</p>
                 </div>
@@ -40,9 +40,9 @@ const ExperienceSection = () => {
                   "MVC Pattern & .NET Core",
                   "Version Control (Git/GitHub)",
                   "Problem Solving & Debugging",
-                ].map((comp, i) => (
+                ].map((comp) => (
                   <div key={comp} className="flex items-start gap-3">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-accent-warm shrink-0" />
                     <span className="text-text-secondary text-sm">{comp}</span>
                   </div>
                 ))}

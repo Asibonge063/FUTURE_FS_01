@@ -13,7 +13,6 @@ const ContactSection = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate sending — replace with a real backend later
     setTimeout(() => {
       setLoading(false);
       toast({
@@ -28,6 +27,8 @@ const ContactSection = () => {
     <section id="contact" className="relative py-24 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${sectionBg})`, backgroundSize: "cover", backgroundPosition: "top" }} />
       <div className="absolute inset-0 bg-muted/70" />
+      {/* Accent wash */}
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-accent/8 blur-3xl pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
@@ -41,67 +42,31 @@ const ContactSection = () => {
           <div className="md:col-span-8">
             <form
               onSubmit={handleSubmit}
-              className="reveal bg-card border border-border rounded-lg p-8 space-y-6"
+              className="reveal bg-card border border-border rounded-lg p-8 space-y-6 shadow-sm"
               style={{ transitionDelay: "120ms" }}
             >
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    className="w-full h-11 px-4 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition"
-                    placeholder="Your name"
-                  />
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">Name</label>
+                  <input id="name" name="name" type="text" required className="w-full h-11 px-4 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition" placeholder="Your name" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full h-11 px-4 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition"
-                    placeholder="your@email.com"
-                  />
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">Email</label>
+                  <input id="email" name="email" type="email" required className="w-full h-11 px-4 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition" placeholder="your@email.com" />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  className="w-full h-11 px-4 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition"
-                  placeholder="What's this about?"
-                />
+                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">Subject</label>
+                <input id="subject" name="subject" type="text" required className="w-full h-11 px-4 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition" placeholder="What's this about?" />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full px-4 py-3 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition resize-none"
-                  placeholder="Tell me about your project or opportunity…"
-                />
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Message</label>
+                <textarea id="message" name="message" rows={5} required className="w-full px-4 py-3 text-sm bg-background border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition resize-none" placeholder="Tell me about your project or opportunity…" />
               </div>
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 h-11 px-6 text-sm font-semibold bg-primary text-primary-foreground rounded-sm transition-all active:scale-[0.97] hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-2 h-11 px-6 text-sm font-semibold bg-accent text-accent-foreground rounded-sm transition-all active:scale-[0.97] hover:brightness-110 shadow-md shadow-accent/25 disabled:opacity-50"
               >
                 {loading ? "Sending…" : (
                   <>
