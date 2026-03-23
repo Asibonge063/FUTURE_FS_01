@@ -10,6 +10,7 @@ const projects = [
     tech: ["C#", "ASP.NET MVC", "SQL Server", "HTML", "CSS"],
     github: "https://github.com/Asibonge063/Ecommerce.git",
     languages: "C# 63.4% · HTML 35.5%",
+    accent: "border-l-accent",
   },
   {
     title: "PetCare System",
@@ -18,6 +19,7 @@ const projects = [
     tech: ["C#", "ASP.NET MVC", "JavaScript", "SQL Server", "Entity Framework"],
     github: "https://github.com/Asibonge063/PetCare_system.git",
     languages: "HTML 60.8% · C# 21.5% · JavaScript 17.7%",
+    accent: "border-l-accent-warm",
   },
 ];
 
@@ -42,7 +44,7 @@ const ProjectsSection = () => {
             {projects.map((project, i) => (
               <div
                 key={project.title}
-                className="reveal group bg-card rounded-lg border border-border p-8 transition-shadow hover:shadow-md"
+                className={`reveal group bg-card rounded-lg border border-border border-l-4 ${project.accent} p-8 transition-shadow hover:shadow-md`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -51,7 +53,7 @@ const ProjectsSection = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-foreground transition-colors flex items-center gap-1.5 text-sm"
+                    className="text-text-secondary hover:text-accent transition-colors flex items-center gap-1.5 text-sm"
                     aria-label={`View ${project.title} on GitHub`}
                   >
                     <Github size={16} />
@@ -64,7 +66,7 @@ const ProjectsSection = () => {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 text-xs font-mono font-medium bg-muted text-foreground rounded-sm"
+                      className="px-2.5 py-1 text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20 rounded-sm"
                     >
                       {t}
                     </span>

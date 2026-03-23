@@ -3,9 +3,8 @@ import { Github, Mail } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="relative py-16 border-t border-border overflow-hidden">
-      {/* Background watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <span className="text-[12rem] font-bold text-muted/60 leading-none tracking-tighter">
+        <span className="text-[12rem] font-bold text-accent/8 leading-none tracking-tighter">
           AM
         </span>
       </div>
@@ -21,20 +20,10 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex items-center gap-5">
-            <a
-              href="https://github.com/Asibonge063"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-foreground transition-colors"
-              aria-label="GitHub"
-            >
+            <a href="https://github.com/Asibonge063" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent transition-colors" aria-label="GitHub">
               <Github size={18} />
             </a>
-            <a
-              href="mailto:asibonge@example.com"
-              className="text-text-secondary hover:text-foreground transition-colors"
-              aria-label="Email"
-            >
+            <a href="mailto:asibonge@example.com" className="text-text-secondary hover:text-accent transition-colors" aria-label="Email">
               <Mail size={18} />
             </a>
           </div>

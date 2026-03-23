@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Mail } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -10,6 +10,10 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/50 to-transparent" />
+
+      {/* Accent color wash — top-right */}
+      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-warm/8 blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
         <div className="max-w-3xl">
@@ -26,7 +30,7 @@ const HeroSection = () => {
           >
             Building robust systems
             <br />
-            with .NET & C#
+            <span className="text-accent">with .NET & C#</span>
           </h1>
 
           <p
@@ -43,7 +47,7 @@ const HeroSection = () => {
           >
             <a
               href="#projects"
-              className="inline-flex items-center h-11 px-6 text-sm font-semibold bg-primary text-primary-foreground rounded-sm transition-transform active:scale-[0.97] hover:opacity-90"
+              className="inline-flex items-center h-11 px-6 text-sm font-semibold bg-accent text-accent-foreground rounded-sm transition-all active:scale-[0.97] hover:brightness-110 shadow-md shadow-accent/25"
             >
               View My Work
             </a>
@@ -64,14 +68,14 @@ const HeroSection = () => {
               href="https://github.com/Asibonge063"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary hover:text-foreground transition-colors"
+              className="text-text-secondary hover:text-accent transition-colors"
               aria-label="GitHub"
             >
               <Github size={20} />
             </a>
             <a
               href="mailto:asibonge@example.com"
-              className="text-text-secondary hover:text-foreground transition-colors"
+              className="text-text-secondary hover:text-accent transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />
@@ -82,7 +86,7 @@ const HeroSection = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1000ms", animationFillMode: "forwards" }}>
-        <a href="#about" className="text-text-secondary hover:text-foreground transition-colors">
+        <a href="#about" className="text-accent hover:text-foreground transition-colors">
           <ArrowDown size={20} className="animate-bounce" />
         </a>
       </div>

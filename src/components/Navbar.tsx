@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <a href="#" className="text-lg font-bold tracking-tight text-foreground">
-          Asibonge Malinga
+          Asibonge<span className="text-accent">.</span>
         </a>
 
         {/* Desktop */}
@@ -32,7 +32,7 @@ const Navbar = () => {
           ))}
           <a
             href="#contact"
-            className="inline-flex items-center h-9 px-5 text-sm font-semibold bg-primary text-primary-foreground rounded-sm transition-transform active:scale-[0.97]"
+            className="inline-flex items-center h-9 px-5 text-sm font-semibold bg-accent text-accent-foreground rounded-sm transition-all active:scale-[0.97] hover:brightness-110 shadow-sm shadow-accent/20"
           >
             Get in Touch
           </a>
@@ -56,7 +56,7 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-text-secondary hover:text-foreground"
+              className="block text-sm font-medium text-text-secondary hover:text-accent"
             >
               {link.label}
             </a>
