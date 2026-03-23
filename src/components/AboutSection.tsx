@@ -8,7 +8,7 @@ const AboutSection = () => {
     <section id="about" className="relative py-24 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `url(${sectionBg})`, backgroundSize: "cover", backgroundPosition: "center" }} />
       <div className="absolute inset-0 bg-muted/70" />
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <h2 className="reveal text-2xl font-semibold tracking-[-0.02em] text-foreground">About Me</h2>
