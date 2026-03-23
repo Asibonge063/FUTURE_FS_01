@@ -6,9 +6,10 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div
-        className="absolute inset-0 opacity-[0.08]"
+        className="absolute inset-0 opacity-30"
         style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
       />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/50 to-transparent" />
 
       <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
         <div className="max-w-3xl">

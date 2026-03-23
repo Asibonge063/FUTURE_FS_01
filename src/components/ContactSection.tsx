@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import { Send } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
+import sectionBg from "@/assets/section-bg.jpg";
 
 const ContactSection = () => {
   const ref = useScrollReveal();
@@ -24,8 +25,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-surface-alt" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="contact" className="relative py-24 overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${sectionBg})`, backgroundSize: "cover", backgroundPosition: "top" }} />
+      <div className="absolute inset-0 bg-muted/70" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <h2 className="reveal text-2xl font-semibold tracking-[-0.02em] text-foreground">
