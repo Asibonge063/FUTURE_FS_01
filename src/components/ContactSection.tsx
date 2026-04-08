@@ -99,8 +99,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Email</p>
-                    <a href="mailto:asibonge@example.com" className="text-muted-foreground hover:text-accent transition-colors">
-                      asibonge@example.com
+                    <a href="mailto:malingaasibongeh@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
+                      malingaasibongeh@gmail.com
                     </a>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Phone</p>
-                    <p className="text-muted-foreground">+27 (123) 456-789</p>
+                    <a href="tel:0678000050" className="text-muted-foreground hover:text-accent transition-colors">067 800 0050</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -146,7 +146,7 @@ const ContactSection = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:asibonge@example.com"
+                href="mailto:malingaasibongeh@gmail.com"
                 className="p-3 rounded-lg bg-card border border-border text-muted-foreground hover:text-accent hover:border-accent transition-all"
                 aria-label="Email"
               >
