@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,50 +6,53 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 222 47% 11%;
+    --background: 220 25% 10%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 220 25% 14%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 220 25% 14%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 35%;
+    --secondary: 215 20% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 215 30% 94%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 199 89% 48%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --accent-warm: 25 95% 53%;
+    --accent-warm: 199 89% 48%;
     --accent-warm-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 199 89% 48%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.375rem;
+    --radius: 0.75rem;
 
-    --surface-alt: 215 30% 94%;
-    --text-secondary: 215 25% 35%;
+    --surface-alt: 220 20% 16%;
+    --text-secondary: 215 20% 65%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 199 89% 48%;
+    --gradient-start: 217 91% 60%;
+    --gradient-end: 199 89% 48%;
+
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -82,33 +85,84 @@
 /* Scroll reveal animation */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  filter: blur(4px);
+  transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-              filter 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+              transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
-/* Link underline animation */
-.link-underline {
-  position: relative;
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.link-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background-color: hsl(var(--accent));
-  transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+/* Animated floating circles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.15; }
+  50% { transform: translateY(-30px) rotate(180deg); opacity: 0.25; }
 }
-.link-underline:hover::after {
-  width: 100%;
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out 2s infinite;
+}
+
+.animate-float-slow {
+  animation: float 10s ease-in-out 4s infinite;
+}
+
+/* Skill card hover */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px -10px hsl(var(--accent) / 0.3);
+}
+
+/* Project card hover */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px -15px hsl(var(--accent) / 0.2);
+}
+
+/* Section divider gradient line */
+.section-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  border-radius: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent));
 }

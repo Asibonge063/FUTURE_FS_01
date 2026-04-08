@@ -1,25 +1,33 @@
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import sectionBg from "@/assets/section-bg.jpg";
 
 const projects = [
   {
     title: "E-Commerce Platform",
     description:
-      "A full-stack e-commerce web application built with ASP.NET MVC and C#. Features product listings, shopping cart functionality, user authentication, and order management — all backed by SQL Server.",
-    tech: ["C#", "ASP.NET MVC", "SQL Server", "HTML", "CSS"],
+      "A comprehensive e-commerce application built with C# and .NET framework, featuring product management, shopping cart functionality, and secure payment processing with SQL Server database integration.",
+    tech: ["C#", ".NET", "MVC", "SQL Server", "RESTful API"],
+    tags: ["C#", ".NET", "SQL Server"],
+    tagColor: "bg-accent/10 text-accent border-accent/20",
     github: "https://github.com/Asibonge063/Ecommerce.git",
-    languages: "C# 63.4% · HTML 35.5%",
-    accent: "border-l-accent",
   },
   {
-    title: "PetCare System",
+    title: "PetCare Management System",
     description:
-      "A pet care management system built with ASP.NET MVC featuring pet registration, owner management, appointment scheduling, and image uploads. Utilises Entity Framework with Code-First migrations.",
-    tech: ["C#", "ASP.NET MVC", "JavaScript", "SQL Server", "Entity Framework"],
+      "A full-featured pet care management system that allows users to track pet health records, appointments, and medical history. Built with HTML, CSS, and JavaScript with dynamic data management capabilities.",
+    tech: ["HTML5", "CSS3", "JavaScript", "Database Management"],
+    tags: ["JavaScript", "HTML/CSS", "Database"],
+    tagColor: "bg-accent-warm/10 text-accent-warm border-accent-warm/20",
     github: "https://github.com/Asibonge063/PetCare_system.git",
-    languages: "HTML 60.8% · C# 21.5% · JavaScript 17.7%",
-    accent: "border-l-accent-warm",
+  },
+  {
+    title: "RESTful API Development",
+    description:
+      "Built production-ready RESTful APIs using .NET Core with proper authentication, error handling, and database integration. Followed best practices for API design and security.",
+    tech: [".NET Core", "C#", "SQL Server", "JWT Authentication"],
+    tags: [".NET Core", "API", "SQL"],
+    tagColor: "bg-accent/10 text-accent border-accent/20",
+    github: null,
   },
 ];
 
@@ -27,55 +35,71 @@ const ProjectsSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="projects" className="relative py-24 overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `url(${sectionBg})`, backgroundSize: "cover", backgroundPosition: "bottom" }} />
-      <div className="absolute inset-0 bg-muted/70" />
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <h2 className="reveal text-2xl font-semibold tracking-[-0.02em] text-foreground">
-              Featured Projects
-            </h2>
-            <p className="reveal text-text-secondary mt-2" style={{ transitionDelay: "80ms" }}>
-              Proof of work — real applications solving real problems.
-            </p>
-          </div>
-          <div className="md:col-span-8 space-y-8">
-            {projects.map((project, i) => (
-              <div
-                key={project.title}
-                className={`reveal group bg-card rounded-lg border border-border border-l-4 ${project.accent} p-8 transition-shadow hover:shadow-md`}
-                style={{ transitionDelay: `${i * 120}ms` }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+    <section id="projects" className="py-24" ref={ref}>
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="reveal text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <div className="section-line mx-auto" />
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, i) => (
+            <div
+              key={project.title}
+              className="reveal project-card bg-card rounded-xl border border-border overflow-hidden flex flex-col"
+              style={{ transitionDelay: `${i * 120}ms` }}
+            >
+              {/* Header with tags */}
+              <div className="p-6 pb-0">
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-bold text-foreground">{project.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className={`px-2.5 py-1 text-xs font-medium rounded-full border ${project.tagColor}`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="px-6 pb-4 flex-1">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  <span className="font-semibold text-foreground/80">Tech Stack:</span>{" "}
+                  {project.tech.join(", ")}
+                </p>
+              </div>
+
+              {/* Footer */}
+              <div className="px-6 pb-6">
+                {project.github ? (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-secondary hover:text-accent transition-colors flex items-center gap-1.5 text-sm"
-                    aria-label={`View ${project.title} on GitHub`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-accent to-accent-warm text-accent-foreground rounded-lg transition-all hover:shadow-lg hover:shadow-accent/20 active:scale-[0.97]"
                   >
                     <Github size={16} />
-                    <span className="hidden sm:inline">Source</span>
+                    View Code
                     <ExternalLink size={12} />
                   </a>
-                </div>
-                <p className="text-text-secondary leading-relaxed mb-5">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2.5 py-1 text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20 rounded-sm"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs font-mono text-muted-foreground">{project.languages}</p>
+                ) : (
+                  <span className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-muted-foreground bg-muted rounded-lg">
+                    Coming Soon
+                  </span>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
