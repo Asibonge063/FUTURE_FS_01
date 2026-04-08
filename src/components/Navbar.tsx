@@ -1,22 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/95 backdrop-blur-md shadow-lg shadow-background/50" : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
-        <a href="#" className="text-lg font-bold tracking-tight text-foreground">
-          Asibonge<span className="text-accent">.</span>
+        <a href="#home" className="text-xl font-bold gradient-text">
+          Asibonge Malinga
         </a>
 
         {/* Desktop */}
@@ -25,17 +36,11 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary link-underline transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
             >
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="inline-flex items-center h-9 px-5 text-sm font-semibold bg-accent text-accent-foreground rounded-sm transition-all active:scale-[0.97] hover:brightness-110 shadow-sm shadow-accent/20"
-          >
-            Get in Touch
-          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -44,19 +49,19 @@ const Navbar = () => {
           className="md:hidden p-2 text-foreground"
           aria-label="Toggle menu"
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-border bg-background px-6 py-4 space-y-3 animate-fade-in">
+        <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border px-6 py-4 space-y-3">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-text-secondary hover:text-accent"
+              className="block text-sm font-medium text-muted-foreground hover:text-accent py-2"
             >
               {link.label}
             </a>
